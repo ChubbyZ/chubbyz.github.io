@@ -1,7 +1,7 @@
 # python
-## doc
+## docs
   [数据写入excle表格](https://chubbyz.github.io/python/数据写入excel表格)  
-  [获取RSS更新源]（）
+  [获取RSS更新源]
 ## project
   域名收集小脚本  
   获取Rss更新源小脚本
