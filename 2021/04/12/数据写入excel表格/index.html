@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="1、创建文件123456from openpyxl import Workbookwb &#x3D; Workbook()# 获取当前actice的sheetws &#x3D; wb.activews.title &#x3D; &quot;salary&quot;wb.save(&quot;文件名&quot;) 2、打开已有文件12from openpyxl import load_workbookwb &#x3D; load_work">
+<meta property="og:type" content="article">
 <meta property="og:title" content="数据写入excel表格">
 <meta property="og:url" content="http://example.com/2021/04/12/%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5excel%E8%A1%A8%E6%A0%BC/index.html">
 <meta property="og:site_name" content="Chubby&#39;s Blog">
+<meta property="og:description" content="1、创建文件123456from openpyxl import Workbookwb &#x3D; Workbook()# 获取当前actice的sheetws &#x3D; wb.activews.title &#x3D; &quot;salary&quot;wb.save(&quot;文件名&quot;) 2、打开已有文件12from openpyxl import load_workbookwb &#x3D; load_work">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-12T10:58:50.000Z">
-<meta property="article:modified_time" content="2021-04-12T10:58:50.060Z">
+<meta property="article:modified_time" content="2021-04-13T02:08:59.890Z">
 <meta property="article:author" content="Chubby">
+<meta property="article:tag" content="python openpyxl">
 <meta name="twitter:card" content="summary">
     
     
@@ -103,7 +106,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">1、创建文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%89%93%E5%BC%80%E5%B7%B2%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">2、打开已有文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%8E%B7%E5%8F%96%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A4%A7%E8%A1%8C%E6%95%B0%E3%80%81%E5%88%97%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">3、获取目前最大行数、列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">4、写入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%8C%89%E8%A1%8C%E9%81%8D%E5%8E%86"><span class="toc-number">5.</span> <span class="toc-text">5、按行遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E6%8C%89%E5%88%97%E9%81%8D%E5%8E%86"><span class="toc-number">6.</span> <span class="toc-text">6、按列遍历</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -136,13 +139,23 @@
       
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python-openpyxl/" rel="tag">python openpyxl</a>
+    </div>
+
 
     </div>
   </header>
   
 
   <div class="content" itemprop="articleBody">
-    
+    <h2 id="1、创建文件"><a href="#1、创建文件" class="headerlink" title="1、创建文件"></a>1、创建文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> Workbook</span><br><span class="line">wb = Workbook()</span><br><span class="line"><span class="comment"># 获取当前actice的sheet</span></span><br><span class="line">ws = wb.active</span><br><span class="line">ws.title = <span class="string">&quot;salary&quot;</span></span><br><span class="line">wb.save(<span class="string">&quot;文件名&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2、打开已有文件"><a href="#2、打开已有文件" class="headerlink" title="2、打开已有文件"></a>2、打开已有文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br><span class="line">wb = load_workbook(<span class="string">&#x27;文件名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3、获取目前最大行数、列数"><a href="#3、获取目前最大行数、列数" class="headerlink" title="3、获取目前最大行数、列数"></a>3、获取目前最大行数、列数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最大列</span></span><br><span class="line">ws.max_col</span><br><span class="line"><span class="comment"># 最大行</span></span><br><span class="line">ws.max_row</span><br></pre></td></tr></table></figure>
+<h2 id="4、写入数据"><a href="#4、写入数据" class="headerlink" title="4、写入数据"></a>4、写入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ws.cell(row,col,calue)</span><br></pre></td></tr></table></figure>
+<h2 id="5、按行遍历"><a href="#5、按行遍历" class="headerlink" title="5、按行遍历"></a>5、按行遍历</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种方法，按行遍历每一个单元格的值</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> ws:      <span class="comment"># 循环获取表数据</span></span><br><span class="line">    <span class="keyword">for</span> cell <span class="keyword">in</span> row:   <span class="comment">#循环获取每个单元格数据</span></span><br><span class="line">        <span class="built_in">print</span>(cell.value,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="comment"># 第二种方法，遍历指定的行和列</span></span><br><span class="line"><span class="comment">#遍历第2行到第5行的前10列</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> ws.iter_rows(min_row=<span class="number">2</span>, max_row=<span class="number">5</span>, max_col=<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> cell <span class="keyword">in</span> row:</span><br><span class="line">        <span class="built_in">print</span>(cell.value, end=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="6、按列遍历"><a href="#6、按列遍历" class="headerlink" title="6、按列遍历"></a>6、按列遍历</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 遍历顺序，大概就像是A1,A2,A3这样的顺序</span></span><br><span class="line"><span class="keyword">for</span> column <span class="keyword">in</span> sheet.columns:</span><br><span class="line">    <span class="keyword">for</span> cell <span class="keyword">in</span> column:</span><br><span class="line">        <span class="built_in">print</span>(cell.value, end=<span class="string">&quot;,&quot;</span>)</span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
@@ -169,7 +182,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">1、创建文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%89%93%E5%BC%80%E5%B7%B2%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">2、打开已有文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%8E%B7%E5%8F%96%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A4%A7%E8%A1%8C%E6%95%B0%E3%80%81%E5%88%97%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">3、获取目前最大行数、列数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">4、写入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%8C%89%E8%A1%8C%E9%81%8D%E5%8E%86"><span class="toc-number">5.</span> <span class="toc-text">5、按行遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E6%8C%89%E5%88%97%E9%81%8D%E5%8E%86"><span class="toc-number">6.</span> <span class="toc-text">6、按列遍历</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
