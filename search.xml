@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>溯源思路整理</title>
+      <link href="2021/04/16/%E6%BA%AF%E6%BA%90%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/"/>
+      <url>2021/04/16/%E6%BA%AF%E6%BA%90%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">​&#96;&#96;&#96;mermaid</span><br><span class="line">graph LR</span><br><span class="line">KaTex--&gt; A(标记 Accents)</span><br><span class="line">A--&gt;撇,估计,均值,向量等写于符号上下的标记</span><br><span class="line">KaTex--&gt; 分隔符_Delimiters</span><br><span class="line">分隔符_Delimiters--&gt;小中大括号,竖杠,绝对值等分隔符的反斜杠写法</span><br><span class="line">KaTex--&gt; 公式组_Enviroments</span><br><span class="line">公式组_Enviroments--&gt;B(.....)</span><br><span class="line">KaTex--</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 应急响应 溯源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>argparse库简介</title>
       <link href="2021/04/16/argparse%E5%BA%93%E7%AE%80%E4%BB%8B/"/>
       <url>2021/04/16/argparse%E5%BA%93%E7%AE%80%E4%BB%8B/</url>
