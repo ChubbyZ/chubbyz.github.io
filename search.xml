@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ubuntu下java卸载和安装</title>
+      <link href="2021/04/22/ubuntu%E4%B8%8Bjava%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/"/>
+      <url>2021/04/22/ubuntu%E4%B8%8Bjava%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="1、解压缩"><a href="#1、解压缩" class="headerlink" title="1、解压缩"></a>1、解压缩</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u181-linux-x64.tar.gz </span><br></pre></td></tr></table></figure><h4 id="2、在-bashrc文件下添加环境变量"><a href="#2、在-bashrc文件下添加环境变量" class="headerlink" title="2、在.bashrc文件下添加环境变量"></a>2、在.bashrc文件下添加环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/home/rootz/jdk1.8.0_181/</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure><h4 id="3、更新源"><a href="#3、更新源" class="headerlink" title="3、更新源"></a>3、更新源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source</span><br></pre></td></tr></table></figure><h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><h4 id="1、先检查是否安装"><a href="#1、先检查是否安装" class="headerlink" title="1、先检查是否安装"></a>1、先检查是否安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure><h4 id="2、移除openjdk包"><a href="#2、移除openjdk包" class="headerlink" title="2、移除openjdk包"></a>2、移除openjdk包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge openjdk*</span><br></pre></td></tr></table></figure><h4 id="3、卸载openjdk相关包"><a href="#3、卸载openjdk相关包" class="headerlink" title="3、卸载openjdk相关包"></a>3、卸载openjdk相关包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge icedtea-* openjdk-*或者(sudo) apt autoremove icedtea-* openjdk-*</span><br></pre></td></tr></table></figure><h4 id="4、再次检查是否卸载成功"><a href="#4、再次检查是否卸载成功" class="headerlink" title="4、再次检查是否卸载成功"></a>4、再次检查是否卸载成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure><h4 id="5、卸载完成"><a href="#5、卸载完成" class="headerlink" title="5、卸载完成"></a>5、卸载完成</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ubuntu java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小问题集锦(持续更新)</title>
       <link href="2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
       <url>2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</url>
