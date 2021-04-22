@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="问题1：火狐不能抓127.0.0.1问题火狐浏览页中输入about:config，打开配置页；在配置页的搜索栏中搜索network.proxy.allow_hijacking_localhost，找到该配置项，双击设置为true即可。 问题2：ubuntu安装docker报错最好的解决方法就是，安装好ubuntu之后，首先安装docker，如遇到以下问题： 12vim : Depends: vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小问题集锦(持续更新)">
+<meta property="og:url" content="http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/index.html">
+<meta property="og:site_name" content="Chubby&#39;s Blog">
+<meta property="og:description" content="问题1：火狐不能抓127.0.0.1问题火狐浏览页中输入about:config，打开配置页；在配置页的搜索栏中搜索network.proxy.allow_hijacking_localhost，找到该配置项，双击设置为true即可。 问题2：ubuntu安装docker报错最好的解决方法就是，安装好ubuntu之后，首先安装docker，如遇到以下问题： 12vim : Depends: vim">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-22T06:33:08.000Z">
+<meta property="article:modified_time" content="2021-04-22T07:51:46.723Z">
+<meta property="article:author" content="Chubby">
+<meta property="article:tag" content="小问题">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/photo.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>小问题集锦(持续更新)</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文件列表</a></li>
+         
+          <li><a href="/links/">友情链接</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/ChubbyZ">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇 " href="/2021/04/16/%E6%BA%AF%E6%BA%90%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部 " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章 " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&text=小问题集锦(持续更新)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&is_video=false&description=小问题集锦(持续更新)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=小问题集锦(持续更新)&body=Check out this article: http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&name=小问题集锦(持续更新)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&t=小问题集锦(持续更新)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A%E7%81%AB%E7%8B%90%E4%B8%8D%E8%83%BD%E6%8A%93127-0-0-1%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题1：火狐不能抓127.0.0.1问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%982%EF%BC%9Aubuntu%E5%AE%89%E8%A3%85docker%E6%8A%A5%E9%94%99"><span class="toc-number">2.</span> <span class="toc-text">问题2：ubuntu安装docker报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%983%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">问题3：</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        小问题集锦(持续更新)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Chubby</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-04-22T06:33:08.000Z" itemprop="datePublished">2021-04-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/" rel="tag">小问题</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="问题1：火狐不能抓127-0-0-1问题"><a href="#问题1：火狐不能抓127-0-0-1问题" class="headerlink" title="问题1：火狐不能抓127.0.0.1问题"></a>问题1：火狐不能抓127.0.0.1问题</h2><p>火狐浏览页中输入about:config，打开配置页；<br>在配置页的搜索栏中搜索network.proxy.allow_hijacking_localhost，<br>找到该配置项，双击设置为true即可。</p>
+<h2 id="问题2：ubuntu安装docker报错"><a href="#问题2：ubuntu安装docker报错" class="headerlink" title="问题2：ubuntu安装docker报错"></a>问题2：ubuntu安装docker报错</h2><p>最好的解决方法就是，安装好ubuntu之后，首先安装docker，如遇到以下问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim : Depends: vim-common (&#x3D; 2:8.0.1453-1ubuntu1.4) but 2:8.0.1766-1ubuntu1 is to be installed</span><br><span class="line">E: Unable to correct problems, you have held broken packages.</span><br></pre></td></tr></table></figure>
+<p>解决方案即安装对应安装包即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim-common=2:8.0.1453-1ubuntu1.4</span><br></pre></td></tr></table></figure>
+<h2 id="问题3："><a href="#问题3：" class="headerlink" title="问题3："></a>问题3：</h2><p>报错信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;), is another process using it?</span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文件列表</a></li>
+         
+          <li><a href="/links/">友情链接</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/ChubbyZ">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A%E7%81%AB%E7%8B%90%E4%B8%8D%E8%83%BD%E6%8A%93127-0-0-1%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题1：火狐不能抓127.0.0.1问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%982%EF%BC%9Aubuntu%E5%AE%89%E8%A3%85docker%E6%8A%A5%E9%94%99"><span class="toc-number">2.</span> <span class="toc-text">问题2：ubuntu安装docker报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%983%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">问题3：</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&text=小问题集锦(持续更新)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&is_video=false&description=小问题集锦(持续更新)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=小问题集锦(持续更新)&body=Check out this article: http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&title=小问题集锦(持续更新)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&name=小问题集锦(持续更新)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/&t=小问题集锦(持续更新)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    Chubby
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文件列表</a></li>
+         
+          <li><a href="/links/">友情链接</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/ChubbyZ">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

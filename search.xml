@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>小问题集锦(持续更新)</title>
+      <link href="2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+      <url>2021/04/22/%E5%B0%8F%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题1：火狐不能抓127-0-0-1问题"><a href="#问题1：火狐不能抓127-0-0-1问题" class="headerlink" title="问题1：火狐不能抓127.0.0.1问题"></a>问题1：火狐不能抓127.0.0.1问题</h2><p>火狐浏览页中输入about:config，打开配置页；<br>在配置页的搜索栏中搜索network.proxy.allow_hijacking_localhost，<br>找到该配置项，双击设置为true即可。</p><h2 id="问题2：ubuntu安装docker报错"><a href="#问题2：ubuntu安装docker报错" class="headerlink" title="问题2：ubuntu安装docker报错"></a>问题2：ubuntu安装docker报错</h2><p>最好的解决方法就是，安装好ubuntu之后，首先安装docker，如遇到以下问题：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim : Depends: vim-common (&#x3D; 2:8.0.1453-1ubuntu1.4) but 2:8.0.1766-1ubuntu1 is to be installed</span><br><span class="line">E: Unable to correct problems, you have held broken packages.</span><br></pre></td></tr></table></figure><p>解决方案即安装对应安装包即可</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim-common=2:8.0.1453-1ubuntu1.4</span><br></pre></td></tr></table></figure><h2 id="问题3："><a href="#问题3：" class="headerlink" title="问题3："></a>问题3：</h2><p>报错信息如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;), is another process using it?</span><br></pre></td></tr></table></figure><p>解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>溯源思路整理</title>
       <link href="2021/04/16/%E6%BA%AF%E6%BA%90%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/"/>
       <url>2021/04/16/%E6%BA%AF%E6%BA%90%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</url>
