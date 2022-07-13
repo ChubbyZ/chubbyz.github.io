@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Linux下本机与远程主机文件传输(命令行)</title>
+      <link href="2022/07/13/Linux%E4%B8%8B%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93-%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <url>2022/07/13/Linux%E4%B8%8B%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93-%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux下本机与远程主机文件传输-命令行"><a href="#Linux下本机与远程主机文件传输-命令行" class="headerlink" title="Linux下本机与远程主机文件传输(命令行)"></a>Linux下本机与远程主机文件传输(命令行)</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">发送端</span><br><span class="line">$  nc -lvvp 端口 &lt; filename</span><br><span class="line">接收端</span><br><span class="line">$  nc 发送端IP 端口 &gt; filename</span><br></pre></td></tr></table></figure><h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">接收端</span><br><span class="line">$ nc -lvvp port | base64 -di &gt;filename</span><br><span class="line">发送端</span><br><span class="line">$ base64 file| telnet 接收端ip port</span><br></pre></td></tr></table></figure><h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">发送端</span><br><span class="line">$ nc -lvp port &lt; file</span><br><span class="line">接收端</span><br><span class="line">$ cat &lt; /dev/tcp/发送端_ip)/(port) &gt; filename</span><br></pre></td></tr></table></figure><h2 id="方法四-ftp"><a href="#方法四-ftp" class="headerlink" title="方法四:ftp"></a>方法四:ftp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">下载单个文件在ftp（sftp）命令行下，运行</span><br><span class="line">$ get &lt;file&gt;   文件会被下载到本地计算机的相同目录下</span><br><span class="line">下载多个文件在ftp（sftp）命令行下，运行</span><br><span class="line">$ mget &lt;file1&gt; &lt;file2&gt; ... &lt;filen&gt;</span><br></pre></td></tr></table></figure><h2 id="方法四-SCP-需要密码"><a href="#方法四-SCP-需要密码" class="headerlink" title="方法四:SCP(需要密码)"></a>方法四:SCP(需要密码)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ scp -v &lt;option&gt; &lt;source_user&gt;@&lt;source_host&gt;:&lt;file&gt; &lt;destination_user&gt;@&lt;destination_host&gt;:&lt;file&gt;</span><br><span class="line">将本地文件从当前机器传输到远程主机（默认情况下，如果您不指定绝对路径，文件将直接复制到您正在连接的用户的主目录。）</span><br><span class="line">$ scp -v file user@192.168.x.x:file</span><br><span class="line">复制目录，您需要指定“-r”选项。</span><br></pre></td></tr></table></figure><h2 id="方法五：rsync-需要密码"><a href="#方法五：rsync-需要密码" class="headerlink" title="方法五：rsync(需要密码)"></a>方法五：rsync(需要密码)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">复制文件：</span><br><span class="line">$ rsync &lt;option&gt; &lt;source_user&gt;@&lt;source_host&gt;:&lt;file&gt; &lt;destination_user&gt;@&lt;destination_host&gt;:&lt;file&gt;</span><br><span class="line">复制目录：</span><br><span class="line">$ rsync -r &lt;source_user&gt;@&lt;source_host&gt;:&lt;file&gt; &lt;destination_user&gt;@&lt;destination_host&gt;:&lt;file&gt;</span><br><span class="line">带有进度条的展示：</span><br><span class="line">$ rsync --progress &lt;source_user&gt;@&lt;source_host&gt;:&lt;file&gt; &lt;destination_user&gt;@&lt;destination_host&gt;:&lt;file&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux 文件传输 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python将字符串转换成字典</title>
       <link href="2021/05/10/python%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E5%85%B8/"/>
       <url>2021/05/10/python%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E5%85%B8/</url>
