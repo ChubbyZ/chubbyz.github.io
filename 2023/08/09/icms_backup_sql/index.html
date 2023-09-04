@@ -6,23 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="1、漏洞位置：后台数据库管理—备份数据库  2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询 3、后台数据库管理—备份数据库—抓包数据包： POST &#x2F;icms&#x2F;admincp.php?app&#x3D;database&amp;do&#x3D;batch&amp;frame&#x3D;iPHP&amp;CSRF_TOKEN&#x3D;147c3ba71iBSwv46u3-S6929ZzoyY">
+    <meta name="description" content="1、漏洞位置：后台数据库管理—备份数据库 undefined 2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询undefined 3、后台数据库管理—备份数据库—抓包数据包： POST &#x2F;icms&#x2F;admincp.php?app&#x3D;database&amp;do&#x3D;batch&amp;frame&#x3D;iPHP&amp;CSRF_TOKEN&#x3D;147c3ba71iB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="icms V7.0.16 后台备份数据库sql注入">
 <meta property="og:url" content="http://example.com/2023/08/09/icms_backup_sql/index.html">
 <meta property="og:site_name" content="Chubby&#39;s Blog">
-<meta property="og:description" content="1、漏洞位置：后台数据库管理—备份数据库  2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询 3、后台数据库管理—备份数据库—抓包数据包： POST &#x2F;icms&#x2F;admincp.php?app&#x3D;database&amp;do&#x3D;batch&amp;frame&#x3D;iPHP&amp;CSRF_TOKEN&#x3D;147c3ba71iBSwv46u3-S6929ZzoyY">
+<meta property="og:description" content="1、漏洞位置：后台数据库管理—备份数据库 undefined 2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询undefined 3、后台数据库管理—备份数据库—抓包数据包： POST &#x2F;icms&#x2F;admincp.php?app&#x3D;database&amp;do&#x3D;batch&amp;frame&#x3D;iPHP&amp;CSRF_TOKEN&#x3D;147c3ba71iB">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37917782/259278595-0dd00bb2-d08a-4cd6-8fd9-b6622ef9f373.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37917782/259278627-9ce9b189-8059-4b4a-9021-f21ae3f07725.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37917782/259278646-9354dbbb-bed1-40a8-a761-36664a032982.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37917782/259278655-b057652f-fb60-46b4-b44a-535c108d0fe2.png">
 <meta property="article:published_time" content="2023-08-09T03:22:55.497Z">
 <meta property="article:modified_time" content="2023-08-09T03:24:52.889Z">
 <meta property="article:author" content="Chubby">
 <meta property="article:tag" content="代码审计">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37917782/259278595-0dd00bb2-d08a-4cd6-8fd9-b6622ef9f373.png">
     
     
       
@@ -54,6 +49,9 @@
     
 	<!-- mathjax -->
 	
+	
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+    
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -157,14 +155,14 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>1、漏洞位置：后台数据库管理—备份数据库<br> <img src="https://user-images.githubusercontent.com/37917782/259278595-0dd00bb2-d08a-4cd6-8fd9-b6622ef9f373.png" alt="1"></p>
-<p>2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询<br><img src="https://user-images.githubusercontent.com/37917782/259278627-9ce9b189-8059-4b4a-9021-f21ae3f07725.png" alt="2"></p>
+    <p>1、漏洞位置：后台数据库管理—备份数据库<br> undefined</p>
+<p>2、注入点在267行的$tabledb[],没有单引号保护和进一步的过滤，直接代入数据库查询<br>undefined</p>
 <p>3、后台数据库管理—备份数据库—抓包<br>数据包：</p>
 <p>POST /icms/admincp.php?app=database&amp;do=batch&amp;frame=iPHP&amp;CSRF_TOKEN=147c3ba71iBSwv46u3-S6929ZzoyYEcNomQKbIGgnjUQ-YD1D9onuehUTP0cXFsOl4Zyrwm6-JagBG4gwWvM3RaVf8mQ5WgRhJ98czs HTTP/1.1<br>Host: 127.0.0.1<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 54<br>Origin: <a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1</a><br>Connection: close<br>Referer: <a target="_blank" rel="noopener" href="http://127.0.0.1/icms/admincp.php?app=database&amp;do=backup">http://127.0.0.1/icms/admincp.php?app=database&amp;do=backup</a><br>Cookie: iCMS_ADMIN_AUTH=177606eayar4nMr06uzE8qLtqrHd_-2aqf-LLtx_wGXYxb89E1f5eStc2KHz-r3SJRpcPyesmzEsAwFbpDOBbsXurTZImR75bCQKEo1r_pLLajmwD_2L7Q<br>Upgrade-Insecure-Requests: 1<br>Sec-Fetch-Dest: iframe<br>Sec-Fetch-Mode: navigate<br>Sec-Fetch-Site: same-origin<br>Sec-Fetch-User: ?1</p>
 <p>table%5B%5D=icms_user_data&amp;sizelimit=2048&amp;batch=backup</p>
 <p>sqlmap进行测试：</p>
-<p><img src="https://user-images.githubusercontent.com/37917782/259278646-9354dbbb-bed1-40a8-a761-36664a032982.png" alt="3"></p>
-<p>测试结果：<br> <img src="https://user-images.githubusercontent.com/37917782/259278655-b057652f-fb60-46b4-b44a-535c108d0fe2.png" alt="4"></p>
+<p>undefined</p>
+<p>测试结果：<br> undefined</p>
 
   </div>
 </article>
@@ -309,6 +307,9 @@
 
 <!-- Disqus Comments -->
 
+<!-- FancyBox -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 </body>
 </html>
