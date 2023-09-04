@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="搭建自己的github博客之前用github搭建博客，用的是github自带的主题，样式太过单一，所以想换主题，折腾了两天，终于搭建成功，故在此记录。先去Baidu搜罗一个自己喜欢的hexo主题备用 注册并申请github账号    注册一个github账号     注册完成后登录，登录后点击new repositoryundefined     创建undefined    创建完成后放着备用。">
+    <meta name="description" content="搭建自己的github博客之前用github搭建博客，用的是github自带的主题，样式太过单一，所以想换主题，折腾了两天，终于搭建成功，故在此记录。先去Baidu搜罗一个自己喜欢的hexo主题备用 注册并申请github账号    注册一个github账号     注册完成后登录，登录后点击new repository     创建    创建完成后放着备用。 安装hexo初始化官网下载node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建github博客&amp;踩坑记录">
 <meta property="og:url" content="http://example.com/2021/04/13/hexo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Chubby&#39;s Blog">
-<meta property="og:description" content="搭建自己的github博客之前用github搭建博客，用的是github自带的主题，样式太过单一，所以想换主题，折腾了两天，终于搭建成功，故在此记录。先去Baidu搜罗一个自己喜欢的hexo主题备用 注册并申请github账号    注册一个github账号     注册完成后登录，登录后点击new repositoryundefined     创建undefined    创建完成后放着备用。">
+<meta property="og:description" content="搭建自己的github博客之前用github搭建博客，用的是github自带的主题，样式太过单一，所以想换主题，折腾了两天，终于搭建成功，故在此记录。先去Baidu搜罗一个自己喜欢的hexo主题备用 注册并申请github账号    注册一个github账号     注册完成后登录，登录后点击new repository     创建    创建完成后放着备用。 安装hexo初始化官网下载node">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/%E6%96%B0%E5%BB%BA%E8%B5%84%E6%96%99%E5%BA%93-1.png">
+<meta property="og:image" content="http://example.com/images/%E6%96%B0%E5%BB%BA%E8%B5%84%E6%96%99%E5%BA%93-2.png">
 <meta property="article:published_time" content="2021-04-13T05:17:14.000Z">
-<meta property="article:modified_time" content="2021-04-13T05:22:38.881Z">
+<meta property="article:modified_time" content="2023-09-04T05:09:32.147Z">
 <meta property="article:author" content="Chubby">
 <meta property="article:tag" content="博客搭建 hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E6%96%B0%E5%BB%BA%E8%B5%84%E6%96%99%E5%BA%93-1.png">
     
     
       
@@ -49,10 +52,7 @@
     
 	<!-- mathjax -->
 	
-	
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -161,15 +161,15 @@
 <h3 id="注册并申请github账号"><a href="#注册并申请github账号" class="headerlink" title="注册并申请github账号"></a>注册并申请github账号</h3><ul>
 <li><p>   <a target="_blank" rel="noopener" href="https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=/&source=header-home">注册</a>一个github账号</p>
 </li>
-<li><p>   注册完成后登录，登录后点击new repository<br>undefined</p>
+<li><p>   注册完成后登录，登录后点击new repository<br><img src="/images/%E6%96%B0%E5%BB%BA%E8%B5%84%E6%96%99%E5%BA%93-1.png" alt="142571649d46eb0674a0726e862deda0.png"></p>
 </li>
-<li><p>   创建<br>undefined</p>
+<li><p>   创建<br><img src="/images/%E6%96%B0%E5%BB%BA%E8%B5%84%E6%96%99%E5%BA%93-2.png" alt="772fa216880e5a87a5b3b9232bcfcc78.png"></p>
 </li>
 <li><p>  创建完成后放着备用。</p>
 <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>官网<a target="_blank" rel="noopener" href="https://nodejs.org/en/">下载</a>node.js安装，其中自动集成了hexo。下载完成后，新建空文件夹，进行hexo初始化，hexo将会在指定文件夹中新建所需要的文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;新建文件夹&gt;</span><br><span class="line">cd &lt;新建文件夹&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>初始化完成后，新建文件夹中的目录如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source|   </span><br><span class="line">            ├── _drafts</span><br><span class="line">            ├── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source|   </span><br><span class="line">            ├── _drafts</span><br><span class="line">            ├── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 <h4 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h4><h5 id="博客搭建-1"><a href="#博客搭建-1" class="headerlink" title="博客搭建"></a>博客搭建</h5><p>如果自己找的主题readme中有教程，接下来步骤可根据教程操作，以下为个人记录。</p>
 </li>
 <li><p>首先，把选好备用的主题clone到新建文件夹中/theams/路径下：git clone <a target="_blank" rel="noopener" href="https://xxxxxxx/xxx">https://xxxxxxx/xxx</a> theams/主题名（可自定义）</p>
@@ -177,7 +177,7 @@
 <li><p>修改/新建文件文件夹/_config.yml中的theme: landscape为theam: 主题名。注意：此处的主题名应该于路径theams路径下的主题名相同。</p>
 </li>
 <li><p> 在/新建文件文件夹/_config.yml中添加依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;xxx&#x2F;xxx.github.io</span><br><span class="line">  # example, https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexojs.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/xxx/xxx.github.io</span><br><span class="line">  # example, https://github.com/hexojs/hexojs.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure></li>
 <li><p> 执行以下命令，将博客推到github上</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save   *安装依赖</span><br><span class="line">hexo clean         *清除缓存</span><br><span class="line">hexo generate    *生成静态网页</span><br><span class="line">hexo deploy       *推送</span><br></pre></td></tr></table></figure></li>
 <li><p>  完成后访问<a target="_blank" rel="noopener" href="https://xxx.github.io即可/">https://xxx.github.io即可</a></p>
@@ -333,10 +333,6 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
-
-<!-- FancyBox -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 </body>
 </html>

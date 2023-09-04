@@ -49,10 +49,7 @@
     
 	<!-- mathjax -->
 	
-	
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -161,11 +158,11 @@
 
 
 
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">接收端</span><br><span class="line">$ nc -lvvp port | base64 -di &gt;filename</span><br><span class="line">发送端</span><br><span class="line">$ base64 file| telnet 接收端ip port</span><br></pre></td></tr></table></figure>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">接收端</span><br><span class="line">$ nc -lvvp port | <span class="built_in">base64</span> -di &gt;filename</span><br><span class="line">发送端</span><br><span class="line">$ <span class="built_in">base64</span> file| telnet 接收端ip port</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">发送端</span><br><span class="line">$ nc -lvp port &lt; file</span><br><span class="line">接收端</span><br><span class="line">$ cat &lt; /dev/tcp/发送端_ip)/(port) &gt; filename</span><br></pre></td></tr></table></figure>
+<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">发送端</span><br><span class="line">$ nc -lvp port &lt; file</span><br><span class="line">接收端</span><br><span class="line">$ <span class="built_in">cat</span> &lt; /dev/tcp/发送端_ip)/(port) &gt; filename</span><br></pre></td></tr></table></figure>
 
 
 
@@ -319,10 +316,6 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
-
-<!-- FancyBox -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 </body>
 </html>

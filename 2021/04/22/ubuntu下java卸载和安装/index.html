@@ -49,10 +49,7 @@
     
 	<!-- mathjax -->
 	
-	
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -159,11 +156,11 @@
   <div class="content" itemprop="articleBody">
     <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="1、解压缩"><a href="#1、解压缩" class="headerlink" title="1、解压缩"></a>1、解压缩</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u181-linux-x64.tar.gz </span><br></pre></td></tr></table></figure>
 <h4 id="2、在-bashrc文件下添加环境变量"><a href="#2、在-bashrc文件下添加环境变量" class="headerlink" title="2、在.bashrc文件下添加环境变量"></a>2、在.bashrc文件下添加环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/home/rootz/jdk1.8.0_181/</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h4 id="3、更新源"><a href="#3、更新源" class="headerlink" title="3、更新源"></a>3、更新源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source</span><br></pre></td></tr></table></figure>
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><h4 id="1、先检查是否安装"><a href="#1、先检查是否安装" class="headerlink" title="1、先检查是否安装"></a>1、先检查是否安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure>
-<h4 id="2、移除openjdk包"><a href="#2、移除openjdk包" class="headerlink" title="2、移除openjdk包"></a>2、移除openjdk包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge openjdk*</span><br></pre></td></tr></table></figure>
-<h4 id="3、卸载openjdk相关包"><a href="#3、卸载openjdk相关包" class="headerlink" title="3、卸载openjdk相关包"></a>3、卸载openjdk相关包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge icedtea-* openjdk-*或者(sudo) apt autoremove icedtea-* openjdk-*</span><br></pre></td></tr></table></figure>
-<h4 id="4、再次检查是否卸载成功"><a href="#4、再次检查是否卸载成功" class="headerlink" title="4、再次检查是否卸载成功"></a>4、再次检查是否卸载成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure>
+<h4 id="3、更新源"><a href="#3、更新源" class="headerlink" title="3、更新源"></a>3、更新源</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source</span><br></pre></td></tr></table></figure>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><h4 id="1、先检查是否安装"><a href="#1、先检查是否安装" class="headerlink" title="1、先检查是否安装"></a>1、先检查是否安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure>
+<h4 id="2、移除openjdk包"><a href="#2、移除openjdk包" class="headerlink" title="2、移除openjdk包"></a>2、移除openjdk包</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge openjdk*</span><br></pre></td></tr></table></figure>
+<h4 id="3、卸载openjdk相关包"><a href="#3、卸载openjdk相关包" class="headerlink" title="3、卸载openjdk相关包"></a>3、卸载openjdk相关包</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) apt-get purge icedtea-* openjdk-*或者(sudo) apt autoremove icedtea-* openjdk-*</span><br></pre></td></tr></table></figure>
+<h4 id="4、再次检查是否卸载成功"><a href="#4、再次检查是否卸载成功" class="headerlink" title="4、再次检查是否卸载成功"></a>4、再次检查是否卸载成功</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(sudo) dpkg --list | grep -i jdk</span><br></pre></td></tr></table></figure>
 <h4 id="5、卸载完成"><a href="#5、卸载完成" class="headerlink" title="5、卸载完成"></a>5、卸载完成</h4>
   </div>
 </article>
@@ -307,10 +304,6 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
-
-<!-- FancyBox -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 </body>
 </html>
